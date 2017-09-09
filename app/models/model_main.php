@@ -13,6 +13,7 @@ class Model_Main extends Model
 		require_once 'app/core/server_info.php';
 		$DB = new MyDatabase($servername,$serverusername,$serverpassword,$serverdatabase);
 		return $DB->select('photo','*',' ORDER BY '.$param.' '.$order);
+		
 	}
 }
 ?>

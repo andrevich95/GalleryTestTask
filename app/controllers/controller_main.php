@@ -7,25 +7,26 @@ class Controller_Main extends Controller
 		$this->model = new Model_Main();
 		$this->view = new View();
 	}
-	function action_index()
+	public function action_index()
 	{	
-		if(isset($_POST['by'])){
-			switch($_POST['by']){
-				case 'date':
-					$data = $this->model->get_ordered('date',$_POST['order']);
-					break;
-				case 'size':
-					$data = $this->model->get_ordered('size',$_POST['order']);
-					break;
-				default:
-					$data = $this->model->get_data();
-					break;
-			}
-		}
-		else{
-			$data = $this->model->get_data();
-		}
+		$data = $this->model->get_data();
 		$this->view->generate('main.php','template.php',$data);
+	}
+	public function action_sort(){
+		$data = $this->model->get_ordered($_POST['param'],$_POST['order']);
+		foreach ($data as $value) {
+			echo '<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+				<div class="panel panel-default">
+			  		<div class="panel-body">
+			  			<img src="'.$value['file'].'">
+			  		</div>
+			  		<div class="panel-footer">
+			  			<p class="pull-right">'.$value['date'].'</p>
+			  			<p>'.$value['comment'].'</p>
+			  		</div>
+				</div>
+				</div>';
+		}
 	}
 }
 ?>

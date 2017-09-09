@@ -17,7 +17,6 @@ class Controller_Add extends Controller
 		if(isset($_POST)&&isset($_FILES))
 		{
 			date_default_timezone_set('UTC');
-		//if(scandir('assets/img/'));
 			$comment = ''; 
 			if(isset($_POST['comment'])) $comment=$_POST['comment'];
 			$upploaddir = 'assets/img/'.$_FILES['image']['name'];
