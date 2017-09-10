@@ -2,15 +2,17 @@
 /*
 Класс для соединения с базой данных
 */
-
+require_once 'app/core/server_info.php';
 class MyDatabase
 {
+	
 	private $connection;
 
-	public function __construct($server,$username,$password,$database)
+	public function __construct()
 	{
+		$this->server="localhost";
 		try{
-			$this->connection = new PDO('mysql:host='.$server.';dbname='.$database, $username, $password);
+			$this->connection = new PDO('mysql:host='.SERVER_NAME.';dbname='.DATABASE, USERNAME, PASSWORD);
 			$this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		}
 		catch(PDOException $e){
@@ -60,18 +62,27 @@ class MyDatabase
 			$data = '';
 			$where = '';
 			foreach ($new as $key => $value) {
-				if(next($new)!==null) $data.=$key.'="'.$value.'",';
-				else $data.=$key.'="'.$value.' ';
+				$data.=$key.'="'.$value.'",';
 			}
 			foreach ($old as $key => $value) {
-				if(next($new)!==null) $where.=$key.'="'.$value.'" AND';
-				else $where.=$key.'="'.$value;
+				$where.=$key.'="'.$value.'" AND';
 			}
-			$sql='UPDATE '.$table.' SET '.$data.' WHERE '.$where.';';
-			
+			$sql='UPDATE '.$table.' SET '.substr($data,0,strlen($data)-1).' WHERE '.substr($where,0,strlen($where)-4).';';
+			$this->connection->exec($sql);
 		} catch (PDOException $e) {
 			echo 'ERROR '.$e->getMessage();			
 		}
+	}
+
+	public function delete($table,$where){
+		try {
+			$sql='DELETE FROM '.$table.' WHERE id="'.$where.'";';
+			$this->connection->exec($sql);
+			return false;
+		} catch (PDOException $e) {
+			echo 'ERROR '.$e->getMessage();	
+		}
+
 	}
 	public function __destruct(){
 		$this->connection =null;

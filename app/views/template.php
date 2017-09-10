@@ -21,7 +21,7 @@
 		      		<li><a href="add">Добавить фото</a></li>
 		      	</ul>
 	</nav>
-	<div class="container">
+	<div class="container" id="main_body">
 	<?php include 'app/views/'.$content_view; ?>
 	</div>
 </body>	

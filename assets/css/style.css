@@ -11,19 +11,28 @@
 	padding-left: 2vw;
 	padding-right: 2vw; 
 }
-.panel{
-	background-color: red;
-	height: 30vh;
+.panel-default{
+	height: 40vh;
 	margin-top: 2vh;
 }
-.panel .panel-body{
-	background-color: red;
+.panel-default .panel-body{
 	height: 40vh;
 
 }
-.panel-body img{
+
+.panel-default .panel-body img{
 	width: 90%;
 	height: 90%;
 	padding-left: 5%;
 	padding-right: 5%;
+}
+.panel-success .panel-body{
+	background-color: green;
+	color: white;
+	font-size: large;
+	height: 10vh;
+}
+.img-pre img{
+	width: 100%;
+	height: 100%;
 }

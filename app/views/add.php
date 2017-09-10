@@ -1,8 +1,8 @@
-<form class="form-horizontal" enctype="multipart/form-data" action="add/add" method="post" id="form_photo">
+<form class="form-horizontal" enctype="multipart/form-data" action="" method="post" id="form_photo">
 	<div class="form-group">
 		<label for="image_file">Изображение</label>
 		<input type="hidden" name="MAX_FILE_SIZE" value="1048576" /> 
-		<input class="form-control" type="file" name="image" id="image_file" accept="jpeg,jpg,png" required>
+		<input class="form-control" type="file" name="image" id="image_file" accept="image/jpeg,image/jpg,image/png" required>
 	</div>
 	<div class="form-group">
 		<label for="comment_holder">Комментарий</label>

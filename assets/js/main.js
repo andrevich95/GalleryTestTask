@@ -1,13 +1,7 @@
 $(document).ready(function (){
-//Sorting photos on AJAX
-
-	sortForm.initialize();
+		sortForm.initialize();
 //Load photos to gallery on AJAX
-
-
-	
- 
-	loadForm.initialize();
-
-
+		loadForm.initialize();
+		removeItem.initialize();
+		editItem.initialize();
 });

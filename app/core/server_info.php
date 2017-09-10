@@ -1,7 +1,6 @@
 <?php
-$servername = "localhost";
-$serverusername = "root";
-$serverpassword = "CL371033";
-$serverdatabase = "gallery";
-
+define('SERVER_NAME', 'localhost');
+define('USERNAME', 'root');
+define('PASSWORD','CL371033');
+define('DATABASE','gallery');
 ?>
