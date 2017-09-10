@@ -85,7 +85,7 @@ var removeItem={
 				$.ajax({
 					url : 'main/delete',
 					type : 'POST',
-					data : {id:$(this).parents('.panel').attr('id')}
+					data : {id:$(this).parents('.thumbnail').attr('id')}
 				})
 				.done(function(){$('#main_body').html('<div class="alert alert-success"><p>Успешно удален файл</p></div>');});
 
@@ -113,7 +113,7 @@ var editItem = {
 
 		edit : function(){
 			$(this).attr('disabled','disabled');
-			var str ='<div class="img-pre"><img class="img-rounded" src="'+$(this).parents('.panel').find('.panel-body img').attr('src')+'"></div><form class="form-horizontal" id="edit_form" method="post"><div class="form-group"><label for="comment_holder">Комментарий</label><textarea id="'+$(this).parents('.panel').attr('id')+'" name="comment" placeholder="Комментарий к фото" class="form-control" cols="20" rows="5" maxlength="200">'+$(this).parents('.panel').find('.panel-footer p:last').text()+'</textarea></div><button type="submit" class="btn btn-success">Сохранить комментарий</button></form>';
+			var str ='<div class="img-pre"><img class="img-rounded" src="'+$(this).parents('.thumbnail').find('img').attr('src')+'"></div><form class="form-horizontal" id="edit_form" method="post"><div class="form-group"><label for="comment_holder">Комментарий</label><textarea id="'+$(this).parents('.thumbnail').attr('id')+'" name="comment" placeholder="Комментарий к фото" class="form-control" cols="20" rows="5" maxlength="200">'+$(this).parents('.thumbnail').find('p').text()+'</textarea></div><button type="submit" class="btn btn-success">Сохранить комментарий</button></form>';
 			$('#main_body').html(str);
 			sendData.initialize();
 		}

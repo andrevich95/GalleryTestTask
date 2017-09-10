@@ -18,27 +18,29 @@
 	<button type="submit" class="btn btn-default" id="sorting">Сортировать</button>
 </div>
 
-<div class="lib">
+<div class="tz-gallery">
 <?php
 if (isset($data)){
 	foreach ($data as $value) {
-		echo '<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-				<div class="panel panel-default" id="panel_'.$value['id'].'">
-
-				<div class="panel-header pull-right">
-					<button class="btn edit-item"><span class="glyphicon glyphicon-pencil"></span></button>
+		echo '<div class="col-sm-6 col-md-4">
+			  		
+                <div class="thumbnail" id="panel_'.$value['id'].'">
+                <button class="btn edit-item"><span class="glyphicon glyphicon-pencil"></span></button>
 					<button class="btn remove-item"><span class="glyphicon glyphicon-remove"></span></button>
-				</div>
-			  		<div class="panel-body">
-			  			<img src="'.$value['file'].'">
-			  		</div>
-			  		<div class="panel-footer">
-			  			<p class="pull-right">'.$value['date'].'</p>
-			  			<p>'.$value['comment'].'</p>
-			  		</div>
-				</div>
-			</div>';
+                    <a class="lightbox" href="'.$value['file'].'">
+                        <img src="'.$value['file'].'" alt="'.$value['comment'].'">
+                    </a>
+                    <div class="caption">
+                        <h3>'.$value['date'].'</h3>
+                        <p>'.$value['comment'].'</p>
+                    </div>
+                </div>
+            </div>';
 	}
 }
 ?>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+<script>
+    baguetteBox.run('.tz-gallery');
+</script>
