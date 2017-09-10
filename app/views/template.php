@@ -17,7 +17,6 @@
 		    		<a class="navbar-brand" href="#">Галлерея</a>
 		   		</div>
 		    	<ul class="nav navbar-nav">
-		      		<li class="active"><a href="#">Домой</a></li>
 		      		<li><a href="main">Галлерея фото</a></li>
 		      		<li><a href="add">Добавить фото</a></li>
 		      	</ul>
